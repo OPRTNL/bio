@@ -60,14 +60,16 @@
 			<br>	
 		</div>
 		<!-- test with model -->
-		{% for experience in experiences %}
+		{% for experience_mission in experience_missions %}
 		<div class="card text-white bg-primary mb-3" style="margin-top: 10px; box-shadow: 2px 2px 5px lightgrey">
 			<div class="card-header">
-			  {{ experience.nom }}
+			  {{ experience_mission.experience.poste }} : <strong>{{experience_mission.experience.start}} - {{experience_mission.experience.end}} </strong>
 			</div>
 			<div class="card-body">
-			  <h5 class="card-title">Special title treatment</h5>
-			  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+			{% for mission in experience_mission.missions %}
+			  <h5 class="card-title">{{mission.titre}}</h5>
+			  <p class="card-text">{{mission.description | safe}}</p>
+			  {% endfor %}
 			  <a href="#" class="btn btn-light ">Go somewhere</a>
 			</div>
 		</div>
