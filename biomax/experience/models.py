@@ -7,6 +7,7 @@ import datetime
 
 # Create your models here.
 
+
 class Experience(models.Model):
     poste = models.CharField(max_length=200)
     body = RichTextField(blank = True, null = True)
@@ -16,6 +17,9 @@ class Experience(models.Model):
 
     def __str__(self) -> str:
         return self.poste
+    
+    def missions(self, Missions):
+        self.missions = Missions.objects.select_related().filter(Experience = self)
 
 class Mission(models.Model):
     titre = models.CharField(max_length=100)

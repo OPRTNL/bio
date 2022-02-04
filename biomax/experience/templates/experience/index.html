@@ -60,13 +60,13 @@
 			<br>	
 		</div>
 		<!-- test with model -->
-		{% for experience_mission in experience_missions %}
+		{% for experience in experiences %}
 		<div class="card text-white bg-primary mb-3" style="margin-top: 10px; box-shadow: 2px 2px 5px lightgrey">
 			<div class="card-header">
-			  {{ experience_mission.experience.poste }} : <strong>{{experience_mission.experience.start}} - {{experience_mission.experience.end}} </strong>
+			  {{ experience.poste }} : <strong>{{experience.start}} - {{experience.end}} </strong>
 			</div>
 			<div class="card-body">
-			{% for mission in experience_mission.missions %}
+			{% for mission in experience.missions %}
 			  <h5 class="card-title">{{mission.titre}}</h5>
 			  <p class="card-text">{{mission.description | safe}}</p>
 			  {% endfor %}

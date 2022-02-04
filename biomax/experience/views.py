@@ -6,9 +6,7 @@ from .models import Experience, Mission
 
 def index(request):
     experiences = Experience.objects.all()
-    experience_missions = []
     for experience in experiences:
-        missions = Mission.objects.select_related().filter(Experience = experience)
-        experience_missions.append({'experience' : experience, 'missions' : missions})
-    print(experience_missions)
-    return render(request,'experience/index.html',{'experience_missions' : experience_missions})
+        experience.missions(Mission)
+        print(experience)
+    return render(request,'experience/index.html',{'experiences' : experiences})
