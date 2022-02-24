@@ -28,3 +28,7 @@ class Mission(models.Model):
 
     def __str__(self) -> str:
         return self.titre
+
+class skills(models.Model):
+    titre = models.CharField(max_length=70)
+    
